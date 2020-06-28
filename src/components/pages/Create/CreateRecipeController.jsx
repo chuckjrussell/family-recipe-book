@@ -1,24 +1,8 @@
-import React from 'react';
-import CreateRecipeView from './CreateRecipeView';
-import { useMutation } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
+import React from "react";
+import CreateRecipeView from "./CreateRecipeView";
 
 const CreateRecipeController = () => {
-
-    const createMutation = gql`
-    mutation{
-        createRecipe(recipe:$recipe) {
-            title
-            servings
-        }
-    }
-`;
-
-    const [createRecipe] = useMutation(createMutation);
-
-    return (
-        <CreateRecipeView recipe={(r) => createRecipe({ variables: { recipe: r } })} />
-    )
-}
+  return <CreateRecipeView recipe={(r) => {}} />;
+};
 
 export default CreateRecipeController;

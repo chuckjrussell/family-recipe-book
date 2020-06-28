@@ -9,50 +9,41 @@ import { CreateRecipe } from "./components/pages/Create";
 import { ThemeProvider } from "styled-components";
 import { Home } from "./components/pages/Home/Home";
 
-import ApolloClient from "apollo-boost";
-import { ApolloProvider } from "@apollo/react-hooks";
-
-const client = new ApolloClient({
-  uri: "http://localhost:4001",
-});
-
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <ThemeProvider
-        theme={{
-          background: "#fcfdff",
-          headline: "#242c3b",
-          subHeadline: "#1b1425",
-          paragraph: "#1b1425",
-          button: "#2f66cc",
-          buttonText: "#fcfdff",
-          primary: "#1985a1",
-          secondary: "#4c5c68",
-          tertiary: "#dcdcdd",
-          monoVeryLight: "#f0f0f0",
-        }}
-      >
-        <Body>
-          <BrowserRouter>
-            <NavMenu />
-            <Wrapper className="container-fluid">
-              <Switch>
-                <Route path="/create">
-                  <CreateRecipe />
-                </Route>
-                <Route path="/recipe/:id">
-                  <Recipe />
-                </Route>
-                <Route path="/">
-                  <Home />
-                </Route>
-              </Switch>
-            </Wrapper>
-          </BrowserRouter>
-        </Body>
-      </ThemeProvider>
-    </ApolloProvider>
+    <ThemeProvider
+      theme={{
+        background: "#fcfdff",
+        headline: "#242c3b",
+        subHeadline: "#1b1425",
+        paragraph: "#1b1425",
+        button: "#2f66cc",
+        buttonText: "#fcfdff",
+        primary: "#1985a1",
+        secondary: "#4c5c68",
+        tertiary: "#dcdcdd",
+        monoVeryLight: "#f0f0f0",
+      }}
+    >
+      <Body>
+        <BrowserRouter>
+          <NavMenu />
+          <Wrapper className="container-fluid">
+            <Switch>
+              <Route path="/create">
+                <CreateRecipe />
+              </Route>
+              <Route path="/recipe/:id">
+                <Recipe />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </Wrapper>
+        </BrowserRouter>
+      </Body>
+    </ThemeProvider>
   );
 }
 
